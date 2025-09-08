@@ -1,6 +1,8 @@
+import AuthLayout from "../../components/layouts/AuthLayout"
+
 const Login = () => {
     return (
-        <div>
+        <AuthLayout>
             <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
                 <h3 className="text-xl font-semibold text-black">
                     Welcome Back!
@@ -9,7 +11,7 @@ const Login = () => {
                     Please enter your details to login...
                 </p>
             </div>
-        </div>
+        </AuthLayout>
     )
 }
 
