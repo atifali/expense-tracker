@@ -1,6 +1,7 @@
 import { useState } from "react"
 import AuthLayout from "../../components/layouts/AuthLayout"
 import { useNavigate } from "react-router-dom";
+import Input from "../../components/inputs/Input";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -8,6 +9,8 @@ const Login = () => {
     const [error, setError] = useState(null);
 
     const navigate = useNavigate();
+
+    const handleLogin = () => { };
 
     return (
         <AuthLayout>
@@ -18,7 +21,15 @@ const Login = () => {
                 <p className="text-xs text-slate-700 mt-[5px] mb-6">
                     Please enter your details to login...
                 </p>
-
+                <form onSubmit={handleLogin}>
+                    <Input
+                        value={email}
+                        onChange={({ target }) => setEmail(target.value)}
+                        label="Email Address"
+                        placeholder="john@example.com"
+                        type="text"
+                    />
+                </form>
             </div>
         </AuthLayout>
     )
