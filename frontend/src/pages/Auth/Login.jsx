@@ -10,7 +10,19 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const handleLogin = () => { };
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        if (!validateEmail(email)) {
+            setError("Please enter a valid email address!");
+            return;
+        }
+        if (!password) {
+            setError("Please enter the password!");
+            return;
+        }
+        setError("");
+
+    };
 
     return (
         <AuthLayout>
