@@ -2,6 +2,7 @@ import { useState } from "react"
 import AuthLayout from "../../components/layouts/AuthLayout"
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/inputs/Input";
+import ProfilePhotoSelector from "../../components/inputs/ProfilePhotoSelector";
 import { validateEmail } from "../../utils/helper";
 
 const SignUp = () => {
@@ -25,6 +26,7 @@ const SignUp = () => {
                     Join us today by entering your details below:
                 </p>
                 <form onSubmit={handleSignUp}>
+                    <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <Input
                             value={fullName}
