@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const ProfilePhotoSelector = ({ image, setImage }) => {
     const inputRef = useRef(null);
@@ -11,6 +11,15 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
             const preview = URL.createObjectURL(file);
             setPreviewUrl(preview);
         }
+    };
+
+    const handleRemoveImage = () => {
+        setImage(null);
+        setPreviewUrl(null);
+    };
+
+    const onChooseFile = () => {
+        inputRef.current.click();
     };
 
     return (
