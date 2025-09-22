@@ -32,6 +32,33 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
                 onChange={handleImageChange}
                 className="hidden"
             />
+            {!image ? (
+                <div className="">
+                    <LuUser className="" />
+                    <button
+                        type="button"
+                        className=""
+                        onClick={onChooseFile}
+                    >
+                        <LuUpload />
+                    </button>
+                </div>
+            ) : (
+                <div className="">
+                    <img
+                        src={previewUrl}
+                        alt="Profile Photo"
+                        className=""
+                    />
+                    <button
+                        type="button"
+                        className=""
+                        onClick={handleRemoveImage}
+                    >
+                        <LuTrash />
+                    </button>
+                </div>
+            )}
         </div>
     )
 }
