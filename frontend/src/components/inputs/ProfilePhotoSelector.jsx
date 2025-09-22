@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { LuUser, LuUpload, LuTrash } from "react-icons/lu";
 
 const ProfilePhotoSelector = ({ image, setImage }) => {
     const inputRef = useRef(null);
@@ -23,7 +24,15 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
     };
 
     return (
-        <div>ProfilePhotoSelector</div>
+        <div className="flex justify-center mb-6">
+            <input
+                type="file"
+                accept="image/*"
+                ref={inputRef}
+                onChange={handleImageChange}
+                className="hidden"
+            />
+        </div>
     )
 }
 
