@@ -64,10 +64,6 @@ exports.loginUser = async (req, res) => {
 }
 
 exports.getUserInfo = async (req, res) => {
-    if (!req.body) {
-        return res.status(400).json({ message: "Invalid request!" });
-    }
-
     try {
         const user = await User.findById(req.user.id).select("-password");
         if (!user) {
