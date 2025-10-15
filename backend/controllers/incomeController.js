@@ -32,5 +32,12 @@ exports.getAllIncome = async (req, res) => {
         return res.status(500).json({ message: "Internal server error!" });
     }
 }
-exports.deleteIncome = async (req, res) => { }
+exports.deleteIncome = async (req, res) => {
+    try {
+        await Income.findByIdAndDelete(req.params.id);
+        res.json({ message: "Income deleted successfully!" });
+    } catch (error) {
+        return res.status(500).json({ message: "Internal server error!" });
+    }
+}
 exports.downloadIncomeExcel = async (req, res) => { }
