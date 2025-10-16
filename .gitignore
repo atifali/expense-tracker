@@ -29,3 +29,7 @@ yarn-error.log*
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+# user data
+uploads/
+*.xlsx
