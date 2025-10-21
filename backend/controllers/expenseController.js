@@ -23,6 +23,14 @@ exports.addExpense = async (req, res) => {
     }
 }
 exports.getAllExpense = async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        const expense = await Expense.find({ userId }).sort({ date: -1 });
+        res.json(expense);
+    } catch (error) {
+        return res.status(500).json({ message: "Internal server error!" });
+    }
 }
 exports.deleteExpense = async (req, res) => {
 }
