@@ -33,6 +33,12 @@ exports.getAllExpense = async (req, res) => {
     }
 }
 exports.deleteExpense = async (req, res) => {
+    try {
+        await Expense.findByIdAndDelete(req.params.id);
+        res.json({ message: "Expense deleted successfully!" });
+    } catch (error) {
+        return res.status(500).json({ message: "Internal server error!" });
+    }
 }
 exports.downloadExpenseExcel = async (req, res) => {
 }
